@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="tip.css">
+<title>Tip Calculator</title>
+</head>
+<body>
+<h1 class="h1" >Tip Calculator</h1>
+<br>
+<br>
+
+<label class="input" for="billAmount">Enter bill amount:</label>
+<input type="number" id="billAmount" min="0" step="0.01">
+<br>
+<br>
+<br>
+<label class="tip" for="tipPercentage">Select tip percentage:</label>
+<select id="tipPercentage">
+<option value="5">5%</option>
+<option value="10">10%</option>
+<option value="15">15%</option>
+<option value="20">20%</option>
+<option value="25">25%</option>
+</select>
+<br>
+<br>
+<br>
+<button type="submit" class="calculate" onclick="calculateTip()">Calculate Tip</button>
+<br>
+
+<br>
+<p class="result" id="tipAmount"></p>
+
+<button class="reload" onclick="window.location.reload()">Reload Calculator</button>
+
+<script>
+function calculateTip() 
+{
+var billAmount = parseFloat(document.getElementById('billAmount').value);
+var tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+var tipAmount = (billAmount * tipPercentage) / 100;
+var totalAmount = billAmount + tipAmount;
+document.getElementById('tipAmount').innerText = "Tip: $" + tipAmount.toFixed(2) + ", Total: $" + totalAmount.toFixed(2);
+}
+</script>
+</body>
+</html>
